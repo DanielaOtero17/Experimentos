@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+
+
 
 namespace EXPERIMENTOS
 {
     class Sorts
     {
         //atributos para el merge sort.
-        private int[] array;
+        private int[] arrayM;
         private int[] arrayMerge;
         private int tamanio;
 
@@ -20,19 +19,35 @@ namespace EXPERIMENTOS
         // Método que se va a utilizar para hacer el llamado al merge Sort.
         public void DoMergesort(int[] Arr)
         {
-            array = Arr;
+             TimeSpan stop;
+            TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
+
+            arrayM = Arr;
             tamanio = Arr.Length;
             arrayMerge = new int[tamanio];
             MergeSort(0, tamanio - 1);
+
+            stop = new TimeSpan(DateTime.Now.Ticks);
+            Console.WriteLine("Time Merge: " + stop.Subtract(start).TotalMilliseconds);
+
+
+
         }
+
 
         /*Este método devuelve el arreglo ordenado por el métdo
          * 
          */
-        public int[] DoQuickSort(int[] array)
+        public void DoQuickSort(int[] array)
         {
+            TimeSpan time;
+            TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
             array = quicksort1(array);
-            return array;
+
+            time = new TimeSpan(DateTime.Now.Ticks);
+            Console.WriteLine("Time Quick: " + time.Subtract(start).TotalMilliseconds);
+
+
         }
 
         public int[] quicksort1(int[] numbers)
@@ -56,7 +71,7 @@ namespace EXPERIMENTOS
                   while(numbers[der] >= numbers[pivote] && izq<der)
                     der--;
 
-                  while(numbers[izq] >= numbers[pivote] && izq<der)
+                  while(numbers[izq] < numbers[pivote] && izq<der)
                     izq++;
                     
                   if(der!=izq)
@@ -97,7 +112,7 @@ namespace EXPERIMENTOS
 
             for (int a = pequenio; a <= grande; a++)
             {
-                arrayMerge[a] = array[a];
+                arrayMerge[a] = arrayM[a];
             }
 
             int i = pequenio;
@@ -107,19 +122,19 @@ namespace EXPERIMENTOS
             {
                 if (arrayMerge[i] <= arrayMerge[j])
                 {
-                    array[k] = arrayMerge[i];
+                    arrayM[k] = arrayMerge[i];
                     i++;
                 }
                 else
                 {
-                    array[k] = arrayMerge[j];
+                    arrayM[k] = arrayMerge[j];
                     j++;
                 }
                 k++;
             }
             while (i <= mitad)
             {
-                array[k] = arrayMerge[i];
+                arrayM[k] = arrayMerge[i];
                 k++;
                 i++;
             }

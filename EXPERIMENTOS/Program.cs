@@ -32,47 +32,55 @@ namespace EXPERIMENTOS
 
 
         public static void readText (){
-          
 
-            /*try
-            {*/
-            String line = "";
+
+            for (int a = 0; a < 1000; a++)
+            {
+                /*try
+                {*/
+                String line = "";
                 FileStream fs = File.Open("test.txt", FileMode.Open);
                 StreamReader sr = new StreamReader(fs);
-            Console.WriteLine("archivo encontrado");
+          //  Console.WriteLine("archivo encontrado");
             Ordenamiento = new Sorts();
 
-
-            while ((line=sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()) != null)
                 {
 
-                String[] arrayAux = line.Split(',');
+                    String[] arrayAux = line.Split(',');
 
-                int[] arrayInt = new int[arrayAux.Length];
-                               
+                    int[] arrayInt = new int[arrayAux.Length];
+                    int[] aux = new int[arrayAux.Length];
 
-                for(int i= 0; i<arrayAux.Length; i++)
-                {
-                    int numero = int.Parse(arrayAux[i]);
-                    arrayInt[i] = numero;
 
+                    for (int i = 0; i < arrayAux.Length; i++)
+                    {
+                        int numero = int.Parse(arrayAux[i]);
+                        arrayInt[i] = numero;
+                        aux[i] = numero;
+
+                    }
+
+                    Ordenamiento.DoMergesort(aux);
+                   // Console.Write("MergeSort: ");
+                    //imprimir(aux);
+
+                    Ordenamiento.DoQuickSort(arrayInt);
+                  //  Console.Write("QuickSort: ");
+                   // imprimir(arrayInt);
                 }
 
-                int[] aux = arrayInt;
 
-                Ordenamiento.DoMergesort(arrayInt);
-                Console.Write("MergeSort: ");
-                imprimir(arrayInt);
-              
-                Ordenamiento.DoQuickSort(aux);
-                Console.Write("QuickSort: ");
-                imprimir(aux);
-                
+
+
+
+                sr.Close();
+
 
             }
 
 
-            sr.Close();
+
 
           /*  }
             catch (IOException){
