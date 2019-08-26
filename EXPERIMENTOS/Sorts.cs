@@ -13,6 +13,10 @@ namespace EXPERIMENTOS
         private int[] arrayMerge;
         private int tamanio;
 
+        public Sorts()
+        {
+            
+        }
         // Método que se va a utilizar para hacer el llamado al merge Sort.
         public void DoMergesort(int[] Arr)
         {
@@ -22,10 +26,13 @@ namespace EXPERIMENTOS
             MergeSort(0, tamanio - 1);
         }
 
-
-        public void DoQuickSort(int[] array)
+        /*Este método devuelve el arreglo ordenado por el métdo
+         * 
+         */
+        public int[] DoQuickSort(int[] array)
         {
             array = quicksort1(array);
+            return array;
         }
 
         public int[] quicksort1(int[] numbers)
@@ -61,8 +68,8 @@ namespace EXPERIMENTOS
                  }
                   if(izq==der){
                     
-                    quicksort2(numeros,i,izq-1);
-                    quicksort2(numeros,izq+1,d);    
+                    quicksort2(numbers,i,izq-1);
+                    quicksort2(numbers,izq+1,d);    
                   }                
             }else
                 return numbers;
