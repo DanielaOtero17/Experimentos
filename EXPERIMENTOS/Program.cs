@@ -81,39 +81,38 @@ namespace EXPERIMENTOS
 
                 String cadMerge = "cadena" + iterator + "   ";
                 String cadQuick = "cadena" + iterator + "   ";
+
                 for (int p = 0; p < 45; p++)
                 {
                     String timeMerge = Ordenamiento.DoMergesort(aux);
                     String timeQuick = Ordenamiento.DoQuickSort(arrayInt);
+                                                                            
 
-
-                    using (StreamWriter fileM = new StreamWriter(rutaM, true))
-                    {
-                        fileM.WriteLine(imprimir(aux));
-
-                    }
-
-                    using (StreamWriter fileQ = new StreamWriter(rutaQ, true))
-                    {
-                        fileQ.WriteLine(imprimir(arrayInt));
-                    }
-                    
-                    
                     cadMerge +=  timeMerge + " ---  ";
                     cadQuick +=   timeQuick + " ---  ";
 
                 }
-                using (StreamWriter fileTimeM = new StreamWriter(timeM, true))
+                using (StreamWriter fileM = new StreamWriter(rutaM, true))
                 {
+                    fileM.WriteLine(imprimir(aux));
+
+                }
+
+                using (StreamWriter fileQ = new StreamWriter(rutaQ, true))
+                {
+                    fileQ.WriteLine(imprimir(arrayInt));
+                }
+                using (StreamWriter fileTimeM = new StreamWriter(timeM, true))
+                    {
 
                     fileTimeM.WriteLine(cadMerge);
 
-                }
+                     }
 
-                using (StreamWriter fileTimeQ = new StreamWriter(timeQ, true))
-                {
+                     using (StreamWriter fileTimeQ = new StreamWriter(timeQ, true))
+                    {
                     fileTimeQ.WriteLine(cadQuick);
-                }
+                    }
 
                 iterator++;
             }
