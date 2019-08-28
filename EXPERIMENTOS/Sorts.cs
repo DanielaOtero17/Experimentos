@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace EXPERIMENTOS
 {
-    class Sorts
+    public class Sorts
     {
         //atributos para el merge sort.
         private int[] arrayM;

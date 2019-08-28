@@ -10,13 +10,13 @@ using System.Collections;
 
 namespace EXPERIMENTOS
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         /// 
-
+       
         private static Sorts Ordenamiento;
         [STAThread]
 
