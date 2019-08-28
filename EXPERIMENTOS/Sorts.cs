@@ -17,7 +17,7 @@ namespace EXPERIMENTOS
             
         }
         // Método que se va a utilizar para hacer el llamado al merge Sort.
-        public void DoMergesort(int[] Arr)
+        public String DoMergesort(int[] Arr)
         {
              TimeSpan stop;
             TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
@@ -28,9 +28,9 @@ namespace EXPERIMENTOS
             MergeSort(0, tamanio - 1);
 
             stop = new TimeSpan(DateTime.Now.Ticks);
-            Console.WriteLine("Time Merge: " + stop.Subtract(start).TotalMilliseconds);
-
-
+            
+            String tiempo = stop.Subtract(start).TotalMilliseconds.ToString();
+            return tiempo;
 
         }
 
@@ -38,15 +38,16 @@ namespace EXPERIMENTOS
         /*Este método devuelve el arreglo ordenado por el métdo
          * 
          */
-        public void DoQuickSort(int[] array)
+        public String DoQuickSort(int[] array)
         {
             TimeSpan time;
             TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
             array = quicksort1(array);
 
             time = new TimeSpan(DateTime.Now.Ticks);
-            Console.WriteLine("Time Quick: " + time.Subtract(start).TotalMilliseconds);
-
+            Console.WriteLine( time.Subtract(start).TotalMilliseconds);
+            String tiempo = time.Subtract(start).TotalMilliseconds.ToString();
+            return tiempo;
 
         }
 
