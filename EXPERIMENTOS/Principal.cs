@@ -7,10 +7,9 @@ using System.IO;
 using System.Collections;
 
 
-
 namespace EXPERIMENTOS
 {
-    public static class Program
+    public static class Principal
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -29,7 +28,6 @@ namespace EXPERIMENTOS
             writeFile();
             //Application.Run(new Form1());
         }
-
 
         public static void readText (){
 
@@ -173,7 +171,7 @@ namespace EXPERIMENTOS
 
             readText();
         }
-        public static String imprimir(int[] imprimir)
+        public static  String imprimir(int[] imprimir)
         {
             String cad = "";
             for(int i=0; i<imprimir.Length; i++)
