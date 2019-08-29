@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace ExperimentosTest
 {
@@ -67,12 +68,49 @@ namespace ExperimentosTest
             }
         }
 
-        [TestMethod]
-        public void TestRegisterTime()
-        {
 
+        [TestMethod]
+        public void TestTimeMerge()
+        {
+            var s = new EXPERIMENTOS.Sorts();
+
+            int[] array = new int[10];
+
+            array[0] = 99; array[1] = 77; array[2] = 1; array[3] = 23;
+            array[4] = 17; array[5] = 12; array[6] = 56; array[7] = 4;
+            array[8] = 28; array[9] = 33;
+
+           String a = s.DoMergesort(array);
+
+           Boolean comp = false;
+
+            if (a != null)
+                comp = true;
+
+            Assert.IsTrue(comp);
         }
 
-      
+        [TestMethod]
+        public void TestTimeQuick()
+        {
+            var s = new EXPERIMENTOS.Sorts();
+
+            int[] array = new int[10];
+
+            array[0] = 99; array[1] = 77; array[2] = 1; array[3] = 23;
+            array[4] = 17; array[5] = 12; array[6] = 56; array[7] = 4;
+            array[8] = 28; array[9] = 33;
+
+            String a = s.DoQuickSort(array);
+
+            Boolean comp = false;
+
+            if (a != null)
+                comp = true;
+
+            Assert.IsTrue(comp);
+        }
+
+
     }
 }
